@@ -35,7 +35,7 @@ The Python script interacts with Maxon’s API to list available applications, t
    ```
 3. Run the script:
    ```bash
-   python download-maxon-apps.py
+   python3 download-maxon-apps.py
    ```
 4. Follow the interactive prompts to select an app, choose a version, and download the app to your specified directory.
 
