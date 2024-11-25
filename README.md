@@ -1,22 +1,53 @@
-# Maxon App MacOS Downloader 
+# Maxon App Downloader for macOS
 
-This repository contains two scripts designed to download applications from Maxon’s API. One script is written in **Python**, and the other in **Bash**. Both scripts fetch a list of available applications and their versions, allow the user to select the desired app and version, and download the selected application to a specified directory.
+## Requirements
+
+To run the scripts on **macOS**, you'll need the following:
+
+### Homebrew
+
+[Homebrew](https://brew.sh/) is a popular package manager for macOS that allows you to easily install and manage software packages. If you don’t have Homebrew installed, follow the steps below.
+
+#### How to Install Homebrew:
+
+1. Open the **Terminal** application on your Mac.
+2. Run the following command to install Homebrew:
+
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+3. Follow the on-screen instructions to complete the installation.
+
+Once Homebrew is installed, you can use it to install other required tools like `jq` and `curl`.
+
+### Python 3.x
+
+You’ll need **Python 3** to run the Python script. It’s usually pre-installed on macOS, but if you need to install or update it, you can use Homebrew:
+
+```bash
+brew install python
+```
+
+After Python is installed, you'll use **`pip3`** to install the required Python packages.
+
+---
 
 ## Python Script: `download-maxon-apps.py`
 
 ### Requirements
 
-To run the Python script, you’ll need the following:
+To run the Python script on **macOS**, you’ll need the following:
 
-- **Python 3.x**
+- **Python 3.x** (You can install it with `brew install python` if not already installed)
 - Required Python packages:
   - `requests` (for making HTTP requests)
   - `tqdm` (for showing a download progress bar)
 
-You can install the required packages using `pip`:
+You can install the required Python packages using `pip3`:
 
 ```bash
-pip install requests tqdm
+pip3 install requests tqdm
 ```
 
 ### Script Overview
@@ -31,7 +62,7 @@ The Python script interacts with Maxon’s API to list available applications, t
 1. Clone the repository or download the `download-maxon-apps.py` script.
 2. Install the necessary Python packages:
    ```bash
-   pip install requests tqdm
+   pip3 install requests tqdm
    ```
 3. Run the script:
    ```bash
@@ -51,7 +82,7 @@ The Bash script requires the following tools:
 - **`jq`** (for parsing JSON)
 - **`curl`** (for downloading files)
 
-You can install the required dependencies with the following commands:
+You can install the required dependencies with the following commands using **Homebrew**:
 
 ```bash
 brew install jq curl
@@ -69,7 +100,7 @@ The Bash script works similarly to the Python script but is intended for users w
 1. Clone the repository or download the `download-maxon-apps.sh` script.
 2. Install the required dependencies:
    ```bash
-   sudo apt install jq curl
+   brew install jq curl
    ```
 3. Make the script executable:
    ```bash
