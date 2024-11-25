@@ -58,7 +58,7 @@ process_app_download() {
     
     # Get versions for selected app
     echo -e "\nAvailable versions for $app_name:"
-    readarray -t versions < <(echo "$apps_json" | jq -r --arg name "$app_name" '.[] | select(.fullName == $name or .name == $name) | .version' | sort -V)
+    versions=($(echo "$apps_json" | jq -r --arg name "$app_name" '.[] | select(.fullName == $name or .name == $name) | .version' | sort -V))
     
     for i in "${!versions[@]}"; do
         echo "$((i+1)). ${versions[$i]}"
@@ -115,7 +115,7 @@ while true; do
     
     # Create a unique list of apps with their names
     echo -e "\nAvailable apps:"
-    readarray -t app_names < <(echo "$apps_json" | jq -r '.[] | "\(.fullName // .name)"' | sort -u)
+    app_names=($(echo "$apps_json" | jq -r '.[] | "\(.fullName // .name)"' | sort -u))
     
     # Display the list of apps
     for i in "${!app_names[@]}"; do
