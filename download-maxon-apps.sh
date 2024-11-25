@@ -35,7 +35,9 @@ get_download_url() {
 # Function to get clean filename from URL
 get_clean_filename() {
     local url="$1"
-    local filename=$(echo "$url" | sed -e 's/.*\///' -e 's/?.*//')
+    local decoded_url=$(echo "$url" | sed 's/%2F/\//g')
+    local filename=$(echo "$decoded_url" | sed -e 's/.*\///' -e 's/?.*//')
+    
     echo "$filename"
 }
 
@@ -154,11 +156,11 @@ while true; do
     
     echo -e "\nAll selected downloads completed!"
     
-    echo -e "\nWould you like to download more apps? (y/n): "
-    read -r continue_choice
-    if [[ ! "$continue_choice" =~ ^[Yy] ]]; then
-        break
-    fi
+#   echo -e "\nWould you like to download more apps? (y/n): "
+#   read -r continue_choice
+#   if [[ ! "$continue_choice" =~ ^[Yy] ]]; then
+#       break
+#   fi
 done
 
 echo "Script finished."
