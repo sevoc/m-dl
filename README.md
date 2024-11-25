@@ -54,7 +54,7 @@ The Bash script requires the following tools:
 You can install the required dependencies with the following commands:
 
 ```bash
-sudo apt install jq curl
+brew install jq curl
 ```
 
 ### Script Overview
