@@ -1,4 +1,4 @@
-# Maxon App Downloader
+# Maxon App MacOS Downloader 
 
 This repository contains two scripts designed to download applications from Maxon’s API. One script is written in **Python**, and the other in **Bash**. Both scripts fetch a list of available applications and their versions, allow the user to select the desired app and version, and download the selected application to a specified directory.
 
