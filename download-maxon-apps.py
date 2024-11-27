@@ -158,6 +158,7 @@ class MaxonDownloader:
                 print(f"App: {version_data['fullName']}")
                 print(f"Version: {version_data['version']}")
                 print(f"Filename: {filename}")
+                print(f"Download URL: {download_url}")
                 print(f"Destination: {destination}")
                 
 #               if input("\nProceed with download? (y/n): ").lower() == 'y':
