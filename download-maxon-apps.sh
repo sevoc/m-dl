@@ -89,6 +89,7 @@ process_app_download() {
     echo "App: $app_name"
     echo "Version: $selected_version"
     echo "Filename: $filename"
+    echo "Download URL: $download_url"
     echo "Destination: $destination"
     
     # Download the file with progress bar
