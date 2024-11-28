@@ -39,7 +39,7 @@ class MaxonDownloader:
             if url_data and isinstance(url_data, list) and len(url_data) > 0:
                 download_url = url_data[0].get('download_url')
                 if download_url:
-                    return download_url
+                    return unquote(download_url)
                 
             raise ValueError("No download URL found in response")
             
