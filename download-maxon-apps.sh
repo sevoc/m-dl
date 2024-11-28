@@ -18,13 +18,13 @@ fi
 # Create download directory if it doesn't exist
 mkdir -p "$DOWNLOAD_DIR"
 
-# Function to get download URL
+# Function to get download URL with decoding
 get_download_url() {
     local name="$1"
     local version="$2"
     local info_url="https://packages.maxon.net/content?id=$name&platform=macos&v=$version"
     
-    local download_url=$(curl -s "$info_url" | jq -r '.[0].download_url // empty')
+    local download_url=$(curl -s "$info_url" | jq -r '.[0].download_url // empty' | sed 's/%2F/\//g')
     if [ -z "$download_url" ]; then
         echo "Error: Could not get download URL"
         exit 1
@@ -106,7 +106,6 @@ process_app_download() {
 # Main execution flow
 while true; do
     # Get and parse the list of available apps
-    echo -e "\nFetching available apps..."
     apps_json=$(curl -s "$MAXON_API_URL")
     
     if [ -z "$apps_json" ]; then
